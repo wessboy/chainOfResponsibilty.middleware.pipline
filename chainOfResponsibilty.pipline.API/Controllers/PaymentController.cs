@@ -19,14 +19,20 @@ namespace chainOfResponsibilty.pipline.API.Controllers
         public ActionResult Post(Operation operation,int subId)
         {
             if (operation == null && subId > 0)
-                return BadRequest();
-            if (ModelState.IsValid)
-            {
-                _paymentManager.CalculateFee(operation.Fee, subId);
-                return Ok();
-            }
+                return BadRequest("provide a valid entery !!");
+          
+            
+          bool result = _paymentManager.CalculateFee(operation.Fee, subId);
 
-            return BadRequest();
+            if (result)
+            {
+                return Ok($"payment for {operation.Fee}$ fee processed successfully");
+
+            }
+                
+            
+
+            return BadRequest("payment failed to be processed");
 
             
         }

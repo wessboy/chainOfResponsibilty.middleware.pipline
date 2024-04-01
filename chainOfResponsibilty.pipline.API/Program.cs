@@ -31,7 +31,8 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.UseLaundryRequest();
+app.UsePaymentRequest();
+app.UseMachineRequest();
 
 app.Run( async context =>
 {

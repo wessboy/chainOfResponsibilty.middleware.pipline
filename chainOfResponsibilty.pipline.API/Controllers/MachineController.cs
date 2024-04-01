@@ -19,14 +19,21 @@ namespace chainOfResponsibilty.pipline.API.Controllers
         public ActionResult Post(Operation operation)
         {
             if (operation == null)
-                return BadRequest();
-            if(ModelState.IsValid)
-            {
-                _machineManager.Activate(operation.Machine.Name);
-                return Ok();
-            }
+                return BadRequest("Please provide an operation to processed");
+           
+            
+             bool result =   _machineManager.Activate(operation.Machine.Name);
 
-            return BadRequest();
+            if (result)
+            {
+                return Ok("Machine Activated");
+            }
+           
+                return BadRequest($"Machine {operation.Machine.Name} failed to start !!");
+
+
+
+
 
         }
     }
