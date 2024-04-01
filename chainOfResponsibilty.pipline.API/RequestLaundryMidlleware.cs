@@ -4,7 +4,7 @@ using System.Text.Json;
 
 namespace chainOfResponsibilty.pipline.API
 {
-    public class RequestLaundryMidlleware
+    public class RequestLaundryMidlleware 
     {
         private readonly RequestDelegate _next;
         private readonly IPaymentManager _paymentManager;
