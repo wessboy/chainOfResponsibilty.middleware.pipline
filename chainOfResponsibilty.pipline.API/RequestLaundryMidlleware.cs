@@ -1,7 +1,5 @@
 ﻿using chainOfResponsibilty.pipline.Domaine.Entities;
 using chainOfResponsibilty.pipline.Domaine.Services;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Abstractions;
 using System.Text.Json;
 
 namespace chainOfResponsibilty.pipline.API
