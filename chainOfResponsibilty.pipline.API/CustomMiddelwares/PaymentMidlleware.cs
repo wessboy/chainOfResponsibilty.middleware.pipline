@@ -26,7 +26,7 @@ namespace chainOfResponsibilty.pipline.API.CustomMiddelwares
 
             //Operation? operation = JsonSerializer.Deserialize<Operation>(operationValue.ToString());
 
-            Operation operation = await JsonSerializer.DeserializeAsync<Operation>(context.Request.Body);
+            Operation? operation = await JsonSerializer.DeserializeAsync<Operation>(context.Request.Body);
 
             Operation? operationContext = context.Items["ClientRequest"] as Operation;
 
