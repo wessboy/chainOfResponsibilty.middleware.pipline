@@ -19,8 +19,8 @@ namespace chainOfResponsibilty.pipline.API.Controllers
 
             if(ModelState.IsValid)
             {
-                HttpContext.Items.Add("ClientRequest", operation);
-                HttpContext.Items.Add("subId", subId);
+                HttpContext.Items["ClientRequest"] = operation;
+               
                 return Ok();
             }
 
