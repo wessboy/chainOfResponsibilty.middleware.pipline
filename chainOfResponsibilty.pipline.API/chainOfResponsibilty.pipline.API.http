@@ -1,0 +1,6 @@
+@chainOfResponsibilty.pipline.API_HostAddress = http://localhost:5066
+
+GET {{chainOfResponsibilty.pipline.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
