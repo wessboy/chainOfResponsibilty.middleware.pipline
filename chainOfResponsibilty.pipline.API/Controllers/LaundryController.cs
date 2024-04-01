@@ -1,6 +1,7 @@
 ﻿using chainOfResponsibilty.pipline.Domaine.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
 
 namespace chainOfResponsibilty.pipline.API.Controllers
 {
@@ -19,7 +20,7 @@ namespace chainOfResponsibilty.pipline.API.Controllers
 
             if(ModelState.IsValid)
             {
-                HttpContext.Items["ClientRequest"] = operation;
+                HttpContext.Items["ClientRequest"] = JsonSerializer.Serialize(operation);
                
                 return Ok();
             }

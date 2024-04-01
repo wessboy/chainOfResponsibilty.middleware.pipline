@@ -21,10 +21,12 @@ namespace chainOfResponsibilty.pipline.API
 
         public async Task InvokeAsync(HttpContext context,RequestDelegate next)
         {
-            Operation? operation = context.Items["ClientRequest"] as Operation;
+            context.Items.TryGetValue("ClientRequest", out var operationValue);
+            Operation? operation = JsonSerializer.Deserialize<Operation>(operationValue.ToString());
+
             var subIdQuery = context.Request.Query["subId"];
 
-            if (operation is null || String.IsNullOrEmpty(subIdQuery))
+            if (operationValue is null || String.IsNullOrEmpty(subIdQuery))
             {
                 context.Response.StatusCode = 400;
             }
