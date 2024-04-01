@@ -1,6 +1,5 @@
 ﻿using chainOfResponsibilty.pipline.API.Controllers;
 using chainOfResponsibilty.pipline.Domaine.Entities;
-using chainOfResponsibilty.pipline.Domaine.Services;
 using System.Text.Json;
 
 namespace chainOfResponsibilty.pipline.API
@@ -20,8 +19,9 @@ namespace chainOfResponsibilty.pipline.API
 
         public async Task InvokeAsync(HttpContext context,RequestDelegate next)
         {
-            Operation? operation = context.Items["ClientRequest"] as Operation;
-            
+            //Operation? operation = context.Items["ClientRequest"] as Operation;
+            //Operation? operation = await JsonSerializer.DeserializeAsync<Operation>(context.Request.Body);
+            Operation? operation = context.Items["ClientRequestData"] as Operation;
 
             if (operation is null)
             {
@@ -30,6 +30,7 @@ namespace chainOfResponsibilty.pipline.API
             else
             {
                 _machineController.Post(operation);
+                context.Response.StatusCode = 200;
                 await next(context);
 
             }

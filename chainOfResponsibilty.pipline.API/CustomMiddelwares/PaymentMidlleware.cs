@@ -1,32 +1,38 @@
 ﻿using chainOfResponsibilty.pipline.API.Controllers;
 using chainOfResponsibilty.pipline.Domaine.Entities;
-using chainOfResponsibilty.pipline.Domaine.Services;
 using System.Text.Json;
 
-namespace chainOfResponsibilty.pipline.API
+namespace chainOfResponsibilty.pipline.API.CustomMiddelwares
 {
     public class PaymentMidlleware : IMiddleware
     {
 
         private readonly PaymentController _paymentController;
-      
+
+
+
 
         public PaymentMidlleware(PaymentController paymentController)
         {
-         
+
             _paymentController = paymentController;
-            
+
 
         }
 
-        public async Task InvokeAsync(HttpContext context,RequestDelegate next)
+        public async Task InvokeAsync(HttpContext context, RequestDelegate next)
         {
-            context.Items.TryGetValue("ClientRequest", out var operationValue);
-            Operation? operation = JsonSerializer.Deserialize<Operation>(operationValue.ToString());
+            //context.Items.TryGetValue("ClientRequest", out var operationValue);
+
+            //Operation? operation = JsonSerializer.Deserialize<Operation>(operationValue.ToString());
+
+            Operation operation = await JsonSerializer.DeserializeAsync<Operation>(context.Request.Body);
+
+
 
             var subIdQuery = context.Request.Query["subId"];
 
-            if (operationValue is null || String.IsNullOrEmpty(subIdQuery))
+            if (operation is null || string.IsNullOrEmpty(subIdQuery))
             {
                 context.Response.StatusCode = 400;
             }
@@ -34,14 +40,17 @@ namespace chainOfResponsibilty.pipline.API
             {
                 int subId = int.Parse(subIdQuery);
                 _paymentController.Post(operation, subId);
+                context.Items["ClientRequestData"] = operation;
                 await next(context);
 
+                await context.Response.WriteAsync("everything is good");
+
             }
-                
 
 
-           
-            
+
+
+
 
         }
 

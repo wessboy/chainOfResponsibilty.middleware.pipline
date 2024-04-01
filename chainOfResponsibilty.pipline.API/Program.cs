@@ -1,5 +1,6 @@
 using chainOfResponsibilty.pipline.API;
 using chainOfResponsibilty.pipline.API.Controllers;
+using chainOfResponsibilty.pipline.API.CustomMiddelwares;
 using chainOfResponsibilty.pipline.Application;
 using chainOfResponsibilty.pipline.Domaine.Services;
 using chainOfResponsibilty.pipline.Infrastructure;

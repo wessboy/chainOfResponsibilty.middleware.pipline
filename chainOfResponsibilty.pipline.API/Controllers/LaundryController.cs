@@ -20,7 +20,7 @@ namespace chainOfResponsibilty.pipline.API.Controllers
 
             if(ModelState.IsValid)
             {
-                HttpContext.Items["ClientRequest"] = JsonSerializer.Serialize(operation);
+                HttpContext.Items["ClientRequest"] = operation;
                
                 return Ok();
             }

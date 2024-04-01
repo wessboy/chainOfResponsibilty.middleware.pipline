@@ -1,6 +1,5 @@
 ﻿using chainOfResponsibilty.pipline.Domaine.Entities;
 using chainOfResponsibilty.pipline.Domaine.Services;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace chainOfResponsibilty.pipline.API.Controllers

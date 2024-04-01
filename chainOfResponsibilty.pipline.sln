@@ -5,11 +5,11 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "chainOfResponsibilty.pipline.API", "chainOfResponsibilty.pipline.API\chainOfResponsibilty.pipline.API.csproj", "{D10D431F-9F58-4CED-80E6-715CA03FC1EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "chainOfResponsibilty.pipline.Domaine", "chainOfResponsibilty.pipline.Domaine\chainOfResponsibilty.pipline.Domaine.csproj", "{39E5C314-7F07-4C18-ACA3-26A3E221F674}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "chainOfResponsibilty.pipline.Domaine", "chainOfResponsibilty.pipline.Domaine\chainOfResponsibilty.pipline.Domaine.csproj", "{39E5C314-7F07-4C18-ACA3-26A3E221F674}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "chainOfResponsibilty.pipline.Application", "chainOfResponsibilty.pipline.Application\chainOfResponsibilty.pipline.Application.csproj", "{A59AB2E5-9674-4358-A8EF-35618A766614}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "chainOfResponsibilty.pipline.Application", "chainOfResponsibilty.pipline.Application\chainOfResponsibilty.pipline.Application.csproj", "{A59AB2E5-9674-4358-A8EF-35618A766614}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "chainOfResponsibilty.pipline.Infrastructure", "chainOfResponsibilty.pipline.Infrastructure\chainOfResponsibilty.pipline.Infrastructure.csproj", "{48D33EF5-DEE6-4C46-B3B2-51F981A88BC9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "chainOfResponsibilty.pipline.Infrastructure", "chainOfResponsibilty.pipline.Infrastructure\chainOfResponsibilty.pipline.Infrastructure.csproj", "{48D33EF5-DEE6-4C46-B3B2-51F981A88BC9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
