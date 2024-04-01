@@ -1,4 +1,5 @@
 using chainOfResponsibilty.pipline.API;
+using chainOfResponsibilty.pipline.API.Controllers;
 using chainOfResponsibilty.pipline.Application;
 using chainOfResponsibilty.pipline.Domaine.Services;
 using chainOfResponsibilty.pipline.Infrastructure;
@@ -9,6 +10,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddSingleton<IPaymentManager,PaymentManager>();
 builder.Services.AddSingleton<IMachineManager,MachineManager>();
 builder.Services.AddSingleton<DataStore>();
+builder.Services.AddSingleton<PaymentController>();
+builder.Services.AddSingleton<MachineController>();
+builder.Services.AddSingleton<PaymentMidlleware>();
+builder.Services.AddSingleton<MachineMidlleware>();
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

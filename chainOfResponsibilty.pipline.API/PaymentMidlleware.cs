@@ -21,15 +21,16 @@ namespace chainOfResponsibilty.pipline.API
 
         public async Task InvokeAsync(HttpContext context,RequestDelegate next)
         {
-            Operation operation = (Operation)context.Items["ClientRequest"];
-            int subId = (int)context.Items["subId"];
+            Operation? operation = context.Items["ClientRequest"] as Operation;
+            var subIdQuery = context.Request.Query["subId"];
 
-            if (operation is null && subId == 0)
+            if (operation is null || String.IsNullOrEmpty(subIdQuery))
             {
                 context.Response.StatusCode = 400;
             }
             else
             {
+                int subId = int.Parse(subIdQuery);
                 _paymentController.Post(operation, subId);
                 await next(context);
 
